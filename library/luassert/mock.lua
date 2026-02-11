@@ -25,4 +25,14 @@ function mock(object, doStubs, func, self, key) end
 ---@return luassert.mockeds
 function mock.new(object, doStubs, func, self, key) end
 
+---Clear the call history for all spies/stubs in a mock object.
+---@param object table The mock object to clear
+---@return table object The mock object
+function mock.clear(object) end
+
+---Revert all spies/stubs in a mock object to their original functions.
+---@param object table The mock object to revert
+---@return table object The mock object
+function mock.revert(object) end
+
 return mock

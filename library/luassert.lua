@@ -14,6 +14,8 @@ function internal.True(value) end
 
 internal.is_true = internal.True
 internal.is_not_true = internal.True
+internal.are_true = internal.True
+internal.are_not_true = internal.True
 
 ---Assert that `value == false`.
 ---@param value any The value to confirm is `false`.
@@ -21,6 +23,8 @@ function internal.False(value) end
 
 internal.is_false = internal.False
 internal.is_not_false = internal.False
+internal.are_false = internal.False
+internal.are_not_false = internal.False
 
 ---Assert that `type(value) == "boolean"`.
 ---@param value any The value to confirm is of type `boolean`.
@@ -29,6 +33,8 @@ function internal.Boolean(value) end
 internal.boolean = internal.Boolean
 internal.is_boolean = internal.Boolean
 internal.is_not_boolean = internal.Boolean
+internal.are_boolean = internal.Boolean
+internal.are_not_boolean = internal.Boolean
 
 ---Assert that `type(value) == "number"`.
 ---@param value any The value to confirm is of type `number`.
@@ -37,6 +43,8 @@ function internal.Number(value) end
 internal.number = internal.Number
 internal.is_number = internal.Number
 internal.is_not_number = internal.Number
+internal.are_number = internal.Number
+internal.are_not_number = internal.Number
 
 ---Assert that `type(value) == "string"`.
 ---@param value any The value to confirm is of type `string`.
@@ -45,6 +53,8 @@ function internal.String(value) end
 internal.string = internal.String
 internal.is_string = internal.String
 internal.is_not_string = internal.String
+internal.are_string = internal.String
+internal.are_not_string = internal.String
 
 ---Assert that `type(value) == "table"`.
 ---@param value any The value to confirm is of type `table`.
@@ -53,6 +63,8 @@ function internal.Table(value) end
 internal.table = internal.Table
 internal.is_table = internal.Table
 internal.is_not_table = internal.Table
+internal.are_table = internal.Table
+internal.are_not_table = internal.Table
 
 ---Assert that `type(value) == "nil"`.
 ---@param value any The value to confirm is of type `nil`.
@@ -60,6 +72,8 @@ function internal.Nil(value) end
 
 internal.is_nil = internal.Nil
 internal.is_not_nil = internal.Nil
+internal.are_nil = internal.Nil
+internal.are_not_nil = internal.Nil
 
 ---Assert that `type(value) == "userdata"`.
 ---@param value any The value to confirm is of type `userdata`.
@@ -68,6 +82,8 @@ function internal.Userdata(value) end
 internal.userdata = internal.Userdata
 internal.is_userdata = internal.Userdata
 internal.is_not_userdata = internal.Userdata
+internal.are_userdata = internal.Userdata
+internal.are_not_userdata = internal.Userdata
 
 ---Assert that `type(value) == "function"`.
 ---@param value any The value to confirm is of type `function`.
@@ -75,6 +91,8 @@ function internal.Function(value) end
 
 internal.is_function = internal.Function
 internal.is_not_function = internal.Function
+internal.are_function = internal.Function
+internal.are_not_function = internal.Function
 
 ---Assert that `type(value) == "thread"`.
 ---@param value any The value to confirm is of type `thread`.
@@ -83,6 +101,8 @@ function internal.Thread(value) end
 internal.thread = internal.Thread
 internal.is_thread = internal.Thread
 internal.is_not_thread = internal.Thread
+internal.are_thread = internal.Thread
+internal.are_not_thread = internal.Thread
 
 ---Assert that a value is truthy.
 ---@param value any The value to confirm is truthy.
@@ -91,6 +111,8 @@ function internal.truthy(value) end
 internal.Truthy = internal.truthy
 internal.is_truthy = internal.truthy
 internal.is_not_truthy = internal.truthy
+internal.are_truthy = internal.truthy
+internal.are_not_truthy = internal.truthy
 
 ---Assert that a value is falsy.
 ---@param value any The value to confirm is falsy.
@@ -99,10 +121,12 @@ function internal.falsy(value) end
 internal.Falsy = internal.falsy
 internal.is_falsy = internal.falsy
 internal.is_not_falsy = internal.falsy
+internal.are_falsy = internal.falsy
+internal.are_not_falsy = internal.falsy
 
 ---Assert that a callback throws an error.
 ---@param callback function A callback function that should error
----@param error? string The specific error message that will be asserted
+---@param error? string|number The specific error message or error code that will be asserted
 function internal.error(callback, error) end
 
 internal.Error = internal.error
@@ -110,6 +134,13 @@ internal.has_error = internal.error
 internal.no_error = internal.error
 internal.no_has_error = internal.error
 internal.has_no_error = internal.error
+internal.errors = internal.error
+internal.is_error = internal.error
+internal.is_not_error = internal.error
+internal.are_error = internal.error
+internal.are_not_error = internal.error
+internal.does_error = internal.error
+internal.does_not_error = internal.error
 
 --- the api is the same as string.find
 ---@param pattern string
@@ -138,10 +169,19 @@ function internal.matches(pattern, actual, init, plain) end
 
 internal.is_matches = internal.matches
 internal.is_not_matches = internal.matches
+internal.are_matches = internal.matches
+internal.are_not_matches = internal.matches
+internal.has_matches = internal.matches
+internal.has_not_matches = internal.matches
 
 internal.match = internal.matches
+internal.Match = internal.matches
 internal.is_match = internal.matches
 internal.is_not_match = internal.matches
+internal.are_match = internal.matches
+internal.are_not_match = internal.matches
+internal.has_match = internal.matches
+internal.has_not_match = internal.matches
 
 ---Assert that two values are near (equal to within a tolerance).
 ---@param expected number The expected value
@@ -168,6 +208,10 @@ function internal.near(expected, actual, tolerance) end
 internal.Near = internal.near
 internal.is_near = internal.near
 internal.is_not_near = internal.near
+internal.are_near = internal.near
+internal.are_not_near = internal.near
+internal.has_near = internal.near
+internal.has_not_near = internal.near
 
 ---Check that two or more items are equal.
 ---
@@ -176,9 +220,14 @@ internal.is_not_near = internal.near
 ---@param ... any Values to check the equality of
 function internal.equal(expected, ...) end
 
-internal.Equal = internal.equal
+internal.equals = internal.equal
+internal.Equals = internal.equal
+internal.is_equal = internal.equal
+internal.is_equals = internal.equal
 internal.are_equal = internal.equal
 internal.are_not_equal = internal.equal
+internal.is_not_equal = internal.equal
+internal.is_not_equals = internal.equal
 
 ---Check that two or more items that are considered the "same".
 ---
@@ -188,8 +237,10 @@ internal.are_not_equal = internal.equal
 function internal.same(expected, ...) end
 
 internal.Same = internal.same
+internal.is_same = internal.same
 internal.are_same = internal.same
 internal.are_not_same = internal.same
+internal.is_not_same = internal.same
 
 --- Number of return values of function
 ---@param argument_number integer
@@ -197,6 +248,10 @@ internal.are_not_same = internal.same
 function internal.returned_arguments(argument_number, func) end
 
 internal.not_returned_arguments = internal.returned_arguments
+internal.is_returned_arguments = internal.returned_arguments
+internal.is_not_returned_arguments = internal.returned_arguments
+internal.has_returned_arguments = internal.returned_arguments
+internal.has_not_returned_arguments = internal.returned_arguments
 
 --- check error message by string.match/string.find(`plain`=true)
 ---@param func function
@@ -222,15 +277,25 @@ internal.not_returned_arguments = internal.returned_arguments
 function internal.error_matches(func, pattern, init, plain) end
 
 internal.no_error_matches = internal.error_matches
+internal.is_error_matches = internal.error_matches
+internal.is_not_error_matches = internal.error_matches
+internal.has_error_matches = internal.error_matches
+internal.has_not_error_matches = internal.error_matches
 
 internal.error_match = internal.error_matches
 internal.no_error_match = internal.error_matches
+internal.is_error_match = internal.error_matches
+internal.is_not_error_match = internal.error_matches
 
 internal.matches_error = internal.error_matches
 internal.no_matches_error = internal.error_matches
+internal.is_matches_error = internal.error_matches
+internal.is_not_matches_error = internal.error_matches
 
 internal.match_error = internal.error_matches
 internal.no_match_error = internal.error_matches
+internal.is_match_error = internal.error_matches
+internal.is_not_match_error = internal.error_matches
 
 --#endregion
 
@@ -247,6 +312,8 @@ function internal.all_near(expected, actual, tolerance) end
 
 internal.are_all_near = internal.all_near
 internal.are_not_all_near = internal.all_near
+internal.is_all_near = internal.all_near
+internal.is_not_all_near = internal.all_near
 
 --- array is uniqued
 ---@param arr any[]
@@ -265,6 +332,10 @@ function internal.unique(arr) end
 
 internal.is_unique = internal.unique
 internal.is_not_unique = internal.unique
+internal.are_unique = internal.unique
+internal.are_not_unique = internal.unique
+internal.has_unique = internal.unique
+internal.has_not_unique = internal.unique
 
 --#endregion
 
@@ -276,11 +347,17 @@ internal.is_not_unique = internal.unique
 ---@return luassert.spy.assert spyAssert A new object that has further assert function options
 function internal.spy(spy) end
 
+internal.is_spy = internal.spy
+internal.are_spy = internal.spy
+
 ---Perform an assertion on a stub object. This will allow you to call further
 ---functions to perform an assertion.
 ---@param stub luassert.spy The stub object to begin asserting
 ---@return luassert.spy.assert stubAssert A new object that has further assert function options
 function internal.stub(stub) end
+
+internal.is_stub = internal.stub
+internal.are_stub = internal.stub
 
 --#endregion
 
@@ -291,6 +368,9 @@ function internal.stub(stub) end
 ---@param object table<integer, any> The array object to begin asserting
 ---@return luassert.array arrayAssert A new object that has further assert function options
 function internal.array(object) end
+
+internal.is_array = internal.array
+internal.are_array = internal.array
 
 --#endregion
 
@@ -428,6 +508,12 @@ internal.is = internal
 internal.has = internal
 internal.does = internal
 
+-- additional modifier aliases for readability
+internal.a = internal
+internal.an = internal
+internal.the = internal
+internal.was = internal
+
 internal.is_not = internal
 internal.are_not = internal
 internal.has_no = internal
@@ -435,6 +521,15 @@ internal.no_has = internal
 internal.does_not = internal
 internal.no = internal
 internal.Not = internal
+
+--#endregion
+
+--#region message modifier
+
+---Sets a custom failure message for the assertion.
+---@param message string The custom message to display on assertion failure
+---@return luassert.internal self The assertion object for chaining
+function internal.message(message) end
 
 --#endregion
 

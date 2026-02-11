@@ -352,6 +352,16 @@ function match.is_not.Thread() end
 match.is_not.Thread = match.is_not.Thread
 match.is_not_thread = match.is_not.Thread
 
+---Check if an object is a matcher.
+---@param object any The object to check
+---@return boolean isMatcher True if the object is a matcher
+function match.is_matcher(object) end
+
+---Check if an object is a reference matcher (created with `match.is_ref`).
+---@param object any The object to check
+---@return boolean isRefMatcher True if the object is a reference matcher
+function match.is_ref_matcher(object) end
+
 ---Check that the value is **NOT** truthy.
 ---@return boolean isTruthy
 function match.is_not.truthy() end

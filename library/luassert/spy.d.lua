@@ -29,10 +29,32 @@ function spy:called(times, compare) end
 function spy:called_with(args) end
 
 ---Check that the spy returned the provided values
----@pasram ... any An array of values that are expected to have been returned by this spy
+---@param ... any An array of values that are expected to have been returned by this spy
 ---@return boolean did If this spy did return the provided values.
 ---@return any[] returns If `did == false`, this will be an array of the values *last* returned by this spy. If `did == true`, this will be an array of the values returned by the matching call of this spy.
 function spy:returned_with(...) end
+
+---Spy calls history
+---@type { vals: any[], refs: any[] }[]
+spy.calls = {}
+
+---Spy return values history
+---@type { vals: any[], refs: any[] }[]
+spy.returnvals = {}
+
+---@class luassert.spy.was
+---@field called fun(times?:integer):boolean Assert that the function was called
+---@field called_with fun(...:any):boolean Assert that the function was called with specific arguments
+---@field not_called_with fun(...:any):boolean Assert that the function was NOT called with specific arguments
+---@field called_at_least fun(times:integer):boolean Assert that the function was called at least N times
+---@field called_at_most fun(times:integer):boolean Assert that the function was called at most N times
+---@field called_more_than fun(times:integer):boolean Assert that the function was called more than N times
+---@field called_less_than fun(times:integer):boolean Assert that the function was called less than N times
+---@field returned_with fun(...:any):boolean Assert that the function returned specific values
+
+---Assertion helpers for spy verification
+---@type luassert.spy.was
+spy.was = {}
 
 --#endregion
 
